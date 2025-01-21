@@ -204,6 +204,7 @@ public class LinkedList {
 		int counter = 0;
 		while (counter != index && itr.hasNext()) {
 			itr.next();
+			counter++;
 		}
 		if (counter == index) {
 			this.remove(itr.current);
