@@ -101,7 +101,9 @@ public class LinkedList {
 			// int count;
 			// while (count < index && itr.hasNext()) {}
 			for (int i = 0; i < index; i++) {
-				itr.next();
+				if (itr.hasNext()) {
+					itr.next();
+				}
 			}
 			newNode.next = itr.current.next;
 			itr.current.next = newNode;
