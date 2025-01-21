@@ -89,10 +89,13 @@ public class LinkedList {
 		Node newNode = new Node(block);
 		if (index == 0) {
 			newNode.next = first;
-			first = newNode;
+			this.first = newNode;
+			if (this.last == null) {
+				this.last = this.first;
+			}
 		} else if (index == size) {
-			last.next = newNode;
-			last = newNode;
+			this.last.next = newNode;
+			this.last = newNode;
 		} else {
 			ListIterator itr = this.iterator();
 			for (int i = 0; i < index; i++) {
