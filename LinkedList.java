@@ -54,7 +54,7 @@ public class LinkedList {
 	 * @return the node at the given index
 	 */
 	public Node getNode(int index) {
-		if (index < 0 || index > size) {
+		if (index < 0 || index > size || first == null) {
 			throw new IllegalArgumentException(
 					"index must be between 0 and size");
 		}
