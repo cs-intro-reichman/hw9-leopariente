@@ -178,8 +178,10 @@ public class LinkedList {
 	public void remove(Node node) {
 		ListIterator itr = this.iterator();
 		if (this.first.block.equals(node.block)) {
-			this.first = null;
-			this.last = first;
+			this.first = this.first.next;
+			if (this.first == null) {
+				this.last = first;
+			}
 		} else {
 			while (!itr.current.next.block.equals(node.block)) {
 				itr.next();
