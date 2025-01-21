@@ -97,7 +97,11 @@ public class MemorySpace {
 	 */
 	public void free(int address) {
 		ListIterator itr = allocatedList.iterator();
-		while (itr.current.block.baseAddress != address && itr.hasNext()) {
+		if (itr.current == null) {
+			throw new IllegalArgumentException(
+					"index must be between 0 and size");
+		}
+		while (itr.current.next != null && itr.current.block.baseAddress != address) {
 			itr.next();
 		}
 		if (itr.current.block.baseAddress == address) {
@@ -122,7 +126,16 @@ public class MemorySpace {
 	 * In this implementation Malloc does not call defrag.
 	 */
 	public void defrag() {
-		/// TODO: Implement defrag test
-		//// Write your code here
+		ListIterator itr = freeList.iterator();
+		if (itr.current == null) {
+			throw new IllegalArgumentException(
+					"index must be between 0 and size");
+		}
+		Node first = this.freeList.getFirst();
+		this.freeList.remove(0);
+		Node second = this.freeList.getFirst();
+		this.freeList.remove(0);
+		MemoryBlock newBlock = new MemoryBlock(first.block.baseAddress, first.block.length + second.block.length);
+		this.freeList.addFirst(newBlock);
 	}
 }
