@@ -203,7 +203,9 @@ public class LinkedList {
 		while (counter != index && itr.hasNext()) {
 			itr.next();
 		}
-		this.remove(itr.current);
+		if (counter == index) {
+			this.remove(itr.current);
+		}
 	}
 
 	/**
