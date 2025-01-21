@@ -177,16 +177,17 @@ public class LinkedList {
 	 */
 	public void remove(Node node) {
 		ListIterator itr = this.iterator();
-		if (itr.current.block.equals(node.block)) {
+		if (this.first.block.equals(node.block)) {
 			this.first = null;
 			this.last = first;
-		}
-		while (!itr.current.next.block.equals(node.block)) {
-			itr.next();
-		}
-		itr.current.next = itr.current.next.next;
-		if (itr.current.next == null) {
-			this.last = itr.current;
+		} else {
+			while (!itr.current.next.block.equals(node.block)) {
+				itr.next();
+			}
+			itr.current.next = itr.current.next.next;
+			if (itr.current.next == null) {
+				this.last = itr.current;
+			}
 		}
 		this.size--;
 	}
