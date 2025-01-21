@@ -179,11 +179,10 @@ public class LinkedList {
 			this.first = null;
 			this.last = first;
 		}
-		while (!itr.current.block.equals(node.block)) {
+		while (!itr.current.next.block.equals(node.block)) {
 			itr.next();
 		}
-		node.next = itr.current.next;
-		itr.current.next = node;
+		itr.current.next = itr.current.next.next;
 		if (itr.current.next == null) {
 			this.last = itr.current;
 		}
