@@ -69,7 +69,7 @@ public class MemorySpace {
 	 */
 	public int malloc(int length) {
 		ListIterator itr = freeList.iterator();
-		while (itr.current.block.length > length && itr.hasNext()) {
+		while (itr.current.block.length < length && itr.hasNext()) {
 			itr.next();
 		}
 		if (itr.current == null) {
