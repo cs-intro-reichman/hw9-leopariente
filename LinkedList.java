@@ -208,6 +208,10 @@ public class LinkedList {
 	 *                                  list
 	 */
 	public void remove(MemoryBlock block) {
+		if (block == null) {
+			throw new IllegalArgumentException(
+					"index must be between 0 and size");
+		}
 		int index = indexOf(block);
 		if (index > -1) {
 			this.remove(index);
