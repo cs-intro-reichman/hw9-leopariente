@@ -88,9 +88,9 @@ public class LinkedList {
 	public void add(int index, MemoryBlock block) {
 		Node newNode = new Node(block);
 		if (index == 0) {
-			newNode.next = first;
+			newNode.next = this.first;
 			this.first = newNode;
-			if (this.last == null) {
+			if (size == 0) {
 				this.last = this.first;
 			}
 		} else if (index == size) {
@@ -98,9 +98,7 @@ public class LinkedList {
 			this.last = newNode;
 		} else {
 			ListIterator itr = this.iterator();
-			// int count;
-			// while (count < index && itr.hasNext()) {}
-			for (int i = 0; i < index; i++) {
+			for (int i = 0; i < index - 1; i++) {
 				if (itr.hasNext()) {
 					itr.next();
 				}
@@ -248,7 +246,12 @@ public class LinkedList {
 	 * A textual representation of this list, for debugging.
 	 */
 	public String toString() {
-		//// Replace the following statement with your code
-		return "";
+		ListIterator itr = this.iterator();
+		String str = "";
+		while (itr.hasNext()) {
+			str += itr.current.block.baseAddress + " ->";
+			itr.next();
+		}
+		return str;
 	}
 }
