@@ -200,7 +200,7 @@ public class LinkedList {
 	public void remove(int index) {
 		ListIterator itr = this.iterator();
 		int counter = 0;
-		while (counter != index) {
+		while (counter != index && itr.hasNext()) {
 			itr.next();
 		}
 		this.remove(itr.current);
