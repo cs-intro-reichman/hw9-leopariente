@@ -249,7 +249,7 @@ public class LinkedList {
 		ListIterator itr = this.iterator();
 		String str = "";
 		while (itr.hasNext()) {
-			str += itr.current.block.baseAddress + " ->";
+			str += "(" + itr.current.block.baseAddress + " , " + itr.current.block.length + ") ";
 			itr.next();
 		}
 		return str;

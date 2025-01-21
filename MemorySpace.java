@@ -80,10 +80,10 @@ public class MemorySpace {
 		if (length == itr.current.block.length) {
 			this.freeList.remove(itr.current);
 		} else {
-			// Check this
 			itr.current.block.baseAddress += length;
 			itr.current.block.length -= length;
 		}
+		System.out.println(this.allocatedList.toString());
 		return newBlock.baseAddress;
 	}
 
