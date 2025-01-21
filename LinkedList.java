@@ -98,6 +98,8 @@ public class LinkedList {
 			this.last = newNode;
 		} else {
 			ListIterator itr = this.iterator();
+			// int count;
+			// while (count < index && itr.hasNext()) {}
 			for (int i = 0; i < index; i++) {
 				itr.next();
 			}
@@ -207,7 +209,9 @@ public class LinkedList {
 	 */
 	public void remove(MemoryBlock block) {
 		int index = indexOf(block);
-		this.remove(index);
+		if (index > -1) {
+			this.remove(index);
+		}
 	}
 
 	/**
