@@ -227,11 +227,11 @@ public class LinkedList {
 	 *                                  list
 	 */
 	public void remove(MemoryBlock block) {
-		if (block == null) {
+		int index = indexOf(block);
+		if (block == null || index < 0) {
 			throw new IllegalArgumentException(
 					"index must be between 0 and size");
 		}
-		int index = indexOf(block);
 		if (index > -1) {
 			this.remove(index);
 		}
