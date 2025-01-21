@@ -205,6 +205,10 @@ public class LinkedList {
 	public void remove(int index) {
 		ListIterator itr = this.iterator();
 		int counter = 0;
+		if (index > size) {
+			throw new IllegalArgumentException(
+					"index must be between 0 and size");
+		}
 		while (counter != index && itr.hasNext()) {
 			itr.next();
 			counter++;
