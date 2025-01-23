@@ -130,8 +130,9 @@ public class MemorySpace {
 			MemoryBlock block = this.freeList.getBlock(i);
 			int sum = block.baseAddress + block.length;
 			ListIterator itr = freeList.iterator();
-			while (itr.current.next != null) {
+			while (itr.hasNext()) {
 				if (itr.current.block.baseAddress == sum) {
+					block.length += itr.current.block.length;
 					this.freeList.remove(itr.current);
 					defrag();
 				}
